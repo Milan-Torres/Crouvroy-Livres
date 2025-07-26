@@ -40,6 +40,10 @@
 - Ajout du cours sur le retour sur trace
 - Changements mineurs de style
 
+#imp[Nouveautés de la version 2025]
+- Modification du code du document (et surtout de sa template) pour le rendre compatible avec les nouvelles verions de Typst
+- Corrections de quelques fautes de grammaire / d'orthographe
+
 = Qu'est-ce qu'un algorithme ?
 == Définition
 Vous avez sans doute souvent entendu parler d'algorithme, que ce soit en NSI ou lors de vos cours de mathématiques au lycée, mais qu'est-ce que c'est exactement ? On serait tenté de dire qu'un programme Python est un algorithme... Mais non ! Ce serait plutôt une implémentation d'un algorithme. Pour le comprendre, voici la définition formelle d'un algorithme :
