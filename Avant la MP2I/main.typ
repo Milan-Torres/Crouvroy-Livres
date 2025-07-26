@@ -1,6 +1,6 @@
 #import "theme.typ": *
 #import "tablex.typ" : *
-#document(title: "Avant la MP2I - Informatique (2024)")[
+#document(title: "Avant la MP2I - Informatique (2025)")[
 
 #imp[Licence]  Avant La MP2I is licensed under CC BY-NC-SA 4.0 
   
