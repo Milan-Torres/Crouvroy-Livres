@@ -1,6 +1,6 @@
-#import "template.typ": *
+#import "theme.typ": *
 #import "tablex.typ" : *
-#document(title: "Avant la MP2I - Informatique (2024)")[
+#document(title: "Avant la MP2I - Informatique (2025)")[
 
 #imp[Licence]  Avant La MP2I is licensed under CC BY-NC-SA 4.0 
   
@@ -40,6 +40,10 @@
 - Ajout du cours sur le retour sur trace
 - Changements mineurs de style
 
+#imp[Nouveautés de la version 2025]
+- Modification du code du document (et surtout de sa template) pour le rendre compatible avec les nouvelles verions de Typst
+- Corrections de quelques fautes de grammaire / d'orthographe
+
 = Qu'est-ce qu'un algorithme ?
 == Définition
 Vous avez sans doute souvent entendu parler d'algorithme, que ce soit en NSI ou lors de vos cours de mathématiques au lycée, mais qu'est-ce que c'est exactement ? On serait tenté de dire qu'un programme Python est un algorithme... Mais non ! Ce serait plutôt une implémentation d'un algorithme. Pour le comprendre, voici la définition formelle d'un algorithme :
@@ -59,7 +63,7 @@ Pour le premier exemple d'algorithme, on va considérer le plus classique (que v
 
 Pour deux nombres `a` $>=$ `b`, si `b` est nul on renvoie `a` sinon on rappelle l'algorithme avec `a % b` et `b`.
 
-La preuve mathématiques est sans intérêt ici (vous la ferez sûrement en début de première année) donc on va admettre que l'algorithme fonctionne. Je pense que vous avez pu le remarquer : cette notation pour l'algorithme n'est pas très pratique, si vous ne voyez pas où est le problème, voici une version plus propre (plus proche d'une suite d'instructions) de cet algortihme :
+La preuve mathématiques est sans intérêt ici (vous la ferez sûrement en début de première année) donc on va admettre que l'algorithme fonctionne. Je pense que vous avez pu le remarquer : cette notation pour l'algorithme n'est pas très pratique, si vous ne voyez pas où est le problème, voici une version plus propre (plus proche d'une suite d'instructions) de cet algorithme :
 
 ```
 PGCD:
@@ -70,7 +74,7 @@ PGCD:
 ```
 #rem[] Cet algorithme s'appelle lui-même, si vous l'avez déjà vu en NSI vous pouvez continuer à lire cette section, sinon je vous conseille de passer à l'introduction à la récursivité.
 
-Maintenant que vous avez vu les deux versions, je suppose que si je vous demandais de me coder en python l'algorithme du PGCD, vous préféreriez avoir la deuxième version plutôt que la première comme indication : elle est plus claire. Cette définition est *informatiquement correcte mais elle n'a aucun lien avec votre ordinateur*, en  fait je peux écrire le même genre de programme pour mon réveil et ça restera de l'informatique :
+Maintenant que vous avez vu les deux versions, je suppose que si je vous demandais de me coder en python l'algorithme du PGCD, vous préféreriez avoir la deuxième version plutôt que la première comme indication : elle est plus claire. Cette définition est *informatiquement correcte mais elle n'a aucun lien avec votre ordinateur*, en fait je peux écrire le même genre de programme pour mon réveil et ça restera de l'informatique :
 
 ```
 Reveil:
@@ -79,7 +83,7 @@ Reveil:
     Sinon dormir()
 ```
 
-Pour en revenir à l'aglorithme d'Euclide, la suite d'instructions définie est donc bien un *algorithme*, en revanche, le code suivant en est une implémentation en OCaml (*n'apprenez pas le OCaml pour le moment* ! Si vous souhaitez vous initier au OCaml, ce document contient dans les dernières pages un lien vers une super série de vidéos).
+Pour en revenir à l'algorithme d'Euclide, la suite d'instructions définie est donc bien un *algorithme*, en revanche, le code suivant en est une implémentation en OCaml (*n'apprenez pas le OCaml pour le moment* ! Si vous souhaitez vous initier au OCaml, ce document contient dans les dernières pages un lien vers une super série de vidéos).
 
 #cb(title : "Euclide en OCaml")[
 ```ocaml
@@ -93,17 +97,17 @@ let rec pgcd a b =
 ]
 
 #exo_nd(title: "Maximum", etoile: 1)[
-    1. Ecrire un algorithme qui prend en entrée un ensemble fini de valeurs (un objet similaire à une liste python) et qui permet d'en obtenir le plus grand élément.
+    1. Écrire un algorithme qui prend en entrée un ensemble fini de valeurs (un objet similaire à une liste python) et qui permet d'en obtenir le plus grand élément.
     2. L'implémenter dans le langage de votre choix.
 ]
 
 #exo_nd(title: "Croissance")[
-    1. Ecrire un algorithme qui prend en entrée une suite finie de nombres (un objet similaire à une liste python) et qui vérifie si elle est de nature croissante.
+    1. Écrire un algorithme qui prend en entrée une suite finie de nombres (un objet similaire à une liste python) et qui vérifie si elle est de nature croissante.
     2. Modifier votre algorithme pour qu'il permette de dire si la suite est croissante, décroissante, constante ou qu'elle ne possède aucune de ces propriétés.
 ]
 
 #exo_nd(title: "Euclide borné", etoile: 2)[
-    1. Ecrire un algorithme (séquence d'instructions) qui prend en entrée trois entiers `a`, `b` et `t` et renvoie Vrai si l'algorithme d'Euclide termine en moins de `t` appels à l'algorithme (en accord avec l'algorithme récursif ci-dessus) et Faux sinon.
+    1. Écrire un algorithme (séquence d'instructions) qui prend en entrée trois entiers `a`, `b` et `t` et renvoie Vrai si l'algorithme d'Euclide termine en moins de `t` appels à l'algorithme (en accord avec l'algorithme récursif ci-dessus) et Faux sinon.
 #rem[Il n'est pas possible de juste réaliser des appels à l'algorithme précédemment écrit, il faut le redéfinir et modifier son comportement]
 ]
 
@@ -116,7 +120,7 @@ Vous avez 25 chevaux et vous voulez les 3 plus rapides, mais vous n'avez le droi
 ]
 
 
-== Comparer les algortihmes
+== Comparer les algorithmes
 
 Pour comparer deux algorithmes, on peut envisager plusieurs pistes. Une méthode naïve serait de lancer les deux algorithmes sur une même machine et comparer le temps de calcul. Cette méthode pose plusieurs problèmes :
 
@@ -125,11 +129,11 @@ Pour comparer deux algorithmes, on peut envisager plusieurs pistes. Une méthode
 
 Il y a encore d'autres problèmes qui peuvent intervenir mais les deux cités suffisent à comprendre que ce n'est pas la piste à suivre.
 
-Avant d'analyser un algorithme (en donner la #imp[complexité]), il faut savoir en fonction de quoi l'analyser. Par exemple, pour un algorthime de tri, l'analyser en fonction du plus grand élément passé en entrée n'a pas réellement de sens (puisqu'on suppose que la comparaison entre deux entiers est, à une constante près, la même indépendamment de la taille). En revanche, l'étudier selon la taille de la liste passée en entrée semble plus intéressant. On note désormais $n$ la taille de l'entrée.
+Avant d'analyser un algorithme (en donner la #imp[complexité]), il faut savoir en fonction de quoi l'analyser. Par exemple, pour un algorithme de tri, l'analyser en fonction du plus grand élément passé en entrée n'a pas réellement de sens (puisqu'on suppose que la comparaison entre deux entiers est, à une constante près, la même indépendamment de la taille). En revanche, l'étudier selon la taille de la liste passée en entrée semble plus intéressant. On note désormais $n$ la taille de l'entrée.
 
 Maintenant que l'on sait selon quel paramètre nous voulons étudier notre algorithme, il faut savoir ce que l'on veut mesurer. Notre but est d'obtenir une #imp[approximation asymptotique], ce qui (dans un langage plus raisonnable) revient à expliquer à quel point la complexité croît en fonction de l'entrée. Par exemple, pour une fonction qui parcourt deux fois une liste, on aura une croissance linéaire ($2 times n$). Ainsi, on notera $theta (n)$, ne vous tracassez pas pour la notation $theta$, il s'agit d'une des #imp[notations de Landau], elles sont au programme de NSI mais vous seront clairement rappellés en prépa. Retenez simplement que pour exprimer que #imp[la croissance de l'algorithme, notée $C_n$,est "à une constante près", une fonction $g(n)$], on note $C_n = theta(g(n))$.
 
-Vous vous dîtes sûrement que cette notation n'a pas d'intérêt car écrire $2n$ est bien plus précis. Vous auriez raison si il n'y avait pas de constantes ignorés dans ce calcul. Pour comprendre ce que je viens de dire, voici un exemple :
+Vous vous dîtes sûrement que cette notation n'a pas d'intérêt car écrire $2n$ est bien plus précis. Vous auriez raison s'il n'y avait pas de constantes ignorées dans ce calcul. Pour comprendre ce que je viens de dire, voici un exemple :
 
 #cb(
   title: "NbJoursDeNoel"
@@ -150,7 +154,7 @@ Vous vous dîtes sûrement que cette notation n'a pas d'intérêt car écrire $2
 L'algorithme prend pour entrée une liste de $n-1$ cadeaux dans un tableau. On va donc exprimer la complexité selon cette taille $n$. On peut se rendre compte qu'on a une complexité $theta (n^2)$ à la main:
 On fait une boucle principale de 1 à $n$ et à chaque appel on a une boucle de taille $i$.
 
-On pourraît se dire qu'un calcul mathématiques nous permettrait de connaître la complexité précise de la fonction. Mais pour l'obtenir, il faudrait connaître la complexité de `Chanter`, or on sait juste qu'elle est constante, ce qu'on peut noter $theta(1)$. Il y a dès ce moment une approximation, aussi précis que l'on veuille être, cette approximation sera toujours la, il faut donc uniquement chercher un autre de grandeur car le $theta (1)$ de `Chanter` ne dépend pas de $n$ et n'affectera donc que par des constantes l'évolution de la complexité en fonction de la valeur $n$ passée en entrée.
+On pourraît se dire qu'un calcul mathématique nous permettrait de connaître la complexité précise de la fonction. Mais pour l'obtenir, il faudrait connaître la complexité de `Chanter`, or on sait juste qu'elle est constante, ce qu'on peut noter $theta(1)$. Il y a dès ce moment une approximation, aussi précis que l'on veuille être, cette approximation sera toujours la, il faut donc uniquement chercher un autre de grandeur car le $theta (1)$ de `Chanter` ne dépend pas de $n$ et n'affectera donc que par des constantes l'évolution de la complexité en fonction de la valeur $n$ passée en entrée.
 
 
 
@@ -177,9 +181,9 @@ Algo2:
 
 On pourraît se dire que le premier est plus optimisé car il va parcourir moins de cases, il ne va parcourir que la partie supérieure de la matrice. Or, si on fait une analyse fine, on aura une complexité (on suppose que `faire_truc` a un coût de 1) $1 + 2 + 3+ ... + n$ et cette somme vaut $n(n+1)/2$ (au programme de première spé maths), on a donc quelque chose "de l'ordre de  $n^2$", c'est-à-dire qu'à un terme négligeable (tracer les fonctions $x -> x^2$ et $x -> x$ sur votre calculatrice ou sur géogebra) près, on a un algorithme de l'ordre de $n^2$. C'est le même ordre que pour l'algorithme 2 qui lui va pourtant parcourir toutes les cases.
 
-En classe prépa (et souvent ailleurs, sauf si on est vraiment sur de l'optimisation à une ligne près, ce qui est rare) on ne cherche qu'à avoir des complexités "à un ordre près" (ce sera défini plus précisemment en maths, le but ici est juste d'avoir une idée) donc ce qui va compter va être une approximation. On ne va pas s'amuser à dire qu'une boucle qui effectue 6 opérations pour chacune des $n$ entrées est en complexité $6n$, on va dire qu'elle est de l'ordre de $n$ (noté $theta(n)$, le $theta$ aspire les constantes multiplicatives).
+En classe prépa (et souvent ailleurs, sauf si on est vraiment sûr de l'optimisation à une ligne près, ce qui est rare) on ne cherche qu'à avoir des complexités "à un ordre près" (ce sera défini plus précisément en maths, le but ici est juste d'avoir une idée) donc ce qui va compter va être une approximation. On ne va pas s'amuser à dire qu'une boucle qui effectue 6 opérations pour chacune des $n$ entrées est en complexité $6n$, on va dire qu'elle est de l'ordre de $n$ (noté $theta(n)$, le $theta$ aspire les constantes multiplicatives).
 
-Depuis le début on utilise des $theta$ car on prend des exemples simples et qu'on peut à la fois minorer et majorer par des constantes multiplicatives les termes asymptotiques qui nous intéressent. En prépa (de mon expérience personnel), vous manipulerez beaucoup plus les $O$ qui sont uniquement des majorations (ie "cet algorithme ne peut pas être pire que celui-ci"), on va donc utiliser des $O$ à partir de maintenant en retenant qu'il suffit de majorer (ie écrire que $C_n <= k times g(n)$ avec $k$ une constante) 
+Depuis le début on utilise des $theta$ car on prend des exemples simples et qu'on peut à la fois minorer et majorer par des constantes multiplicatives les termes asymptotiques qui nous intéressent. En prépa (de mon expérience personnelle), vous manipulerez beaucoup plus les $O$ qui sont uniquement des majorations (ie "cet algorithme ne peut pas être pire que celui-ci"), on va donc utiliser des $O$ à partir de maintenant en retenant qu'il suffit de majorer (ie écrire que $C_n <= k times g(n)$ avec $k$ une constante) 
 
 C'est en réalité très pratique, il devient beaucoup plus simple de donner des complexités à l'oeil nu :
 
@@ -710,7 +714,7 @@ Ainsi, on représente un entier dans un ordinateur comme cette somme. Par exempl
   ]
 ]
 
-#exo_nd(title: "Ecriture binaire")[
+#exo_nd(title: "Écriture binaire")[
   Donnez l'écriture binaire des nombres suivants :
 
   1. 72
@@ -719,7 +723,7 @@ Ainsi, on représente un entier dans un ordinateur comme cette somme. Par exempl
   4. 0
   5. 987
 
-  A la main, on peut faire des petites valeurs sans trop de souci, cependant, vous allez devoir écrire un algorithme pour celui-ci :
+  À la main, on peut faire des petites valeurs sans trop de souci, cependant, vous allez devoir écrire un algorithme pour celui-ci :
 
   ($star star$)6. 2946654722
 ]
@@ -763,7 +767,7 @@ Pour obtenir $-p$ voici la procédure :
 
 == Représenter des réels
 
-Pour représenter un réel, on va l'écrire en écriture ingénieur, c'est-à-dire $(-1)^gamma 1,t r u c times 10^(e x p o s a n t)$. Le "truc" correspond à ce qu'on appelle la #imp[mantisse]. Il faut donc trouvrer un moyen d'encoder cette forme. Pour cela on a la #imp[norme IEEE-754], on encode en binaire les différentes parties en les écrivant à la suite. Ainsi, le premier bit (de poids fort) est celui de signe, puis on a $k$ bits pour l'exposant, le reste est réservé à la mantisse.
+Pour représenter un réel, on va l'écrire en écriture ingénieur, c'est-à-dire $(-1)^gamma 1,t r u c times 10^(e x p o s a n t)$. Le "truc" correspond à ce qu'on appelle la #imp[mantisse]. Il faut donc trouver un moyen d'encoder cette forme. Pour cela on a la #imp[norme IEEE-754], on encode en binaire les différentes parties en les écrivant à la suite. Ainsi, le premier bit (de poids fort) est celui de signe, puis on a $k$ bits pour l'exposant, le reste est réservé à la mantisse.
 
 Par exemple, $1001111$ avec 3 bits de d'exposant peut se réécrire $1$ $001$ $111$. #imp[Il y a une subtilité sur l'exposant], $001$ n'est pas le code de l'exposant, c'est celui de l'exposant additionné à une valeur qui permet de ne coder que des entiers positifs, cette valeur est $2^(k-1) -1$. Ainsi, $001$ représente 1 en base 10 et ici $k=3$ donc le décalage est $1$, donc on a encodé $1-1 = 0$. Ainsi, l'exposant est nul. Puis on a le bit de signe qui est sur 1, donc on a un négatif. Enfin la mantisse est $111$ donc $0.5+0.25+0.125 = 0.875$, le réel encodé est donc $-1,875$.
 
@@ -791,21 +795,21 @@ Par exemple, $1001111$ avec 3 bits de d'exposant peut se réécrire $1$ $001$ $1
 ]
 
 #exo_nd(title: "Xor")[
-On définie sur des nombres binaires l'operation de XOR comme étant (bit par bit) 0 si les deux bits sont identiques et 1 sinon.
+On définit sur des nombres binaires l'opération de XOR comme étant (bit par bit) 0 si les deux bits sont identiques et 1 sinon.
 
 Par exemple, `11011 ^ 01101 = 10110`.
 
 1. Calculez le résultat de `1010 ^ 0110`.
 
-2. Ecrivez une fonction qui prend entrée deux nombres entiers positifs `a` et `b`, et renvoie #imp[la distance de Hamming de ces deux nombres], à savoir le nombre de bits différents entre `a` et `b`. On pensera évidemment à utiliser le XOR...
+2. Écrivez une fonction qui prend en entrée deux nombres entiers positifs `a` et `b`, et renvoie #imp[la distance de Hamming de ces deux nombres], à savoir le nombre de bits différents entre `a` et `b`. On pensera évidemment à utiliser le XOR...
 
-($star star$)3. Ecrivez un algorithme qui #imp[échange le contenu de deux variables `a` et `b` (des entiers) sans utiliser de variable intermédiaire].
+($star star$)3. Écrivez un algorithme qui #imp[échange le contenu de deux variables `a` et `b` (des entiers) sans utiliser de variable intermédiaire].
 
-($star$)4. Ecrivez un algorithme qui prend entrée un entier $n in NN$ et renvoie la partié de ce nombre *en utilisant le XOR*.
+($star$)4. Écrivez un algorithme qui prend entrée un entier $n in NN$ et renvoie la partié de ce nombre *en utilisant le XOR*.
 ]
 
 #exo_nd(title: "Le XORShift", etoile: 2)[
-  C'est un exercice qui peut être vu comme une application de fin de partie avec les deux précédents exercices. Il ne faut pas avoir traité intégralement les exercies précédents mais seulement avoir compris les concepts.
+  C'est un exercice qui peut être vu comme une application de fin de partie avec les deux précédents exercices. Il ne faut pas avoir traité intégralement les exercices précédents mais seulement avoir compris les concepts.
 
   1. Remémorez-vous tout ce que vous savez sur les générateurs pseudo-aléatoires.
 
@@ -824,7 +828,7 @@ Par exemple, `11011 ^ 01101 = 10110`.
     ```
   ]
 
-  2. Codez-le en python et appellez-le un grand nombre de fois en l'appellant à chaque fois avec le résultat de l'appel précédent.
+  2. Codez-le en python et appelez-le un grand nombre de fois en l'appelant à chaque fois avec le résultat de l'appel précédent.
 
   3. En analysant le titre du code proposé, trouvez la période de ce générateur (après combien d'appels sommes-nous certains de retomber sur une valeur déjà générée) ? Est-elle atteinte pour toute graine ?
 
@@ -836,16 +840,16 @@ Par exemple, `11011 ^ 01101 = 10110`.
 
   1. Expliquez comment obtenir une porte OR avec ces deux portes (OR vaut 1 si au moins une des deux entrées est vraie)
   2. Expliquez comment obtenir une porte AND avec des deux portes.
-  3. On suppose avoir une porte qui décompose un nombre sur $n$ bits en ses $n$ bits (on a une entrée par bit), expliquez comment faire un XOR entre des nombres encodés sur $n$ bits grace à cette porte.
+  3. On suppose avoir une porte qui décompose un nombre sur $n$ bits en ses $n$ bits (on a une entrée par bit), expliquez comment faire un XOR entre des nombres encodés sur $n$ bits grâce à cette porte.
 ]
 
 = Raisonner inductivement $star$
 
-C'est l'un des chapitre les plus importants de tout ce document. Lisez-le plusieurs fois et essayez de comprendre un maximum de notions.
+C'est l'un des chapitres les plus importants de tout ce document. Lisez-le plusieurs fois et essayez de comprendre un maximum de notions.
 
 == Introduction
 
-En Informatique, vous aurez souvent besoin de décrire des #imp[structures de données], que ce soit des listes, des arbres, des UnionFind, etc. La plupart de ces structures sont #imp[construites inductivement]. C'est-à-dire qu'on a des cas de base, (la liste vide pour les listes par exemple) et des cas qui vont faire le lien entre eux. Par exemple on peut définir une liste de la sorte :
+En informatique, vous aurez souvent besoin de décrire des #imp[structures de données], que ce soit des listes, des arbres, des UnionFind, etc. La plupart de ces structures sont #imp[construites inductivement]. C'est-à-dire qu'on a des cas de base, (la liste vide pour les listes par exemple) et des cas qui vont faire le lien entre eux. Par exemple on peut définir une liste de la sorte :
 - Soit la liste est vide
 - Soit la liste est un élément suivie d'une liste `e::l`
 
@@ -884,22 +888,22 @@ Ainsi, on peut dire que `[1;2;3]` est `1::(2::(3::(Vide)))`. Le gros avantage de
     D'où $H_n$ vraie pour tout $n in NN^*$ par principe de récurrence. 
 ]
 
-Ainsi on peut voir que savoir que la propriété tient pour les cas de base et que composer par un constructeur la préserve permet d'affirer qu'elle sera vraie pour tout objet du type considéré.
+Ainsi on peut voir que savoir que la propriété tient pour les cas de base et que composer par un constructeur la préserve permet d'affirmer qu'elle sera vraie pour tout objet du type considéré.
 
 #exo_nd(title: "Encore et encore")[
-    Refaîtes la démonstration du théorème #imp[4-1] pour voir si vous l'avez bien comprise.
+    Refaites la démonstration du théorème #imp[4-1] pour voir si vous l'avez bien comprise.
 ]
 
 
 == Les arbres
-Maintenant que vous avez une vague idée des raisonnements inductifs, voyons un cas concret (que vous reverrez en MP2I, mais le voir avant pour en comprendre les idées peut-être bénéfique je pense) : #imp[les arbres]
+Maintenant que vous avez une vague idée des raisonnements inductifs, voyons un cas concret (que vous reverrez en MP2I, mais le voir avant pour en comprendre les idées peut être bénéfique je pense) : #imp[les arbres]
 
 #def(title: "Arbre binaire")[
-    Un arbre binaire est #imp[définie inductivement] #ita[(j'avais dis que c'était important comme terme)] de la sorte :
+    Un arbre binaire est #imp[défini inductivement] #ita[(j'avais dit que c'était important comme terme)] de la sorte :
 
     - L'arbre vide est un arbre
     - Un arbre à un seul noeud est un arbre, qu'on nomme une #imp[feuille]
-    - Un noeud avec 1 ou 2 fils qui sont eux-même des arbres binaires est un arbre.
+    - Un noeud avec 1 ou 2 fils qui sont eux-mêmes des arbres binaires est un arbre.
 ]
 
 Voici un exemple d'arbre pour vous faire une idée :
@@ -912,9 +916,9 @@ Voici un exemple d'arbre pour vous faire une idée :
 )
 
 #pl(title: "Le OCaml, ce sauveur" + $star star$)[
-    Plus haut, j'avais dis que le OCaml était très pratique pour les types définies par induction, voyons voir pourquoi. On définit la hauteur d'un arbre binaire de la sorte :
+    Plus haut, j'avais dit que le OCaml était très pratique pour les types définis par induction, voyons voir pourquoi. On définit la hauteur d'un arbre binaire de la sorte :
 
-    - L'arbre vide est de hauter $-1$ (#ita[Pour permettre d'avoir la même hauteur pour un arbre qu'on le représente comme ayant des feuilles sans fils ou des feuilles qui ont pour fils l'arbre vide])
+    - L'arbre vide est de hauteur $-1$ (#ita[Pour permettre d'avoir la même hauteur pour un arbre qu'on le représente comme ayant des feuilles sans fils ou des feuilles qui ont pour fils l'arbre vide])
     - Un noeud $x$ qui a pour fils $a_1$ et $a_2$ a pour hauteur $1 + max(a_1,a_2)$.
 
     À première vue, cette définition est compliquée à coder en C ou en Python, en revanche en OCaml, par le mot-clé `match`, on a le code magique suivant :
@@ -948,7 +952,7 @@ class Arbre:
         self.f2 = None
 ```
 ]
-Ainsi, on peut facilement faire un "match" en Python, par exemple voici une fonction qui donne la hauteur en Python #ita[définition de la hauteur d'un arbre binaire disponible dans la section Aller Plus Loin ci-dessus]:
+Ainsi, on peut facilement faire un "match" en Python, par exemple, voici une fonction qui donne la hauteur en Python #ita[définition de la hauteur d'un arbre binaire disponible dans la section Aller Plus Loin ci-dessus]:
 #cb(title: "Hauteur d'un arbre en Python")[
 ```python
 def hauteur(a):
@@ -965,11 +969,11 @@ def hauteur(a):
     ($star star$)1. Trouvez un encadrement du nombre de noeud d'un arbre selon sa hauteur.
     2. Montrez cet encadrement par un raisonnement inductif.
 ]
-#rem[Cet exercice étant fondamentale, en voici la correction.]
+#rem[Cet exercice étant fondamental, en voici la correction.]
 #dem[
-    1. Obtenons une minoration et une majoration séparémment :
+    1. Obtenons une minoration et une majoration séparément :
     - Si on a une hauteur $h$, on a $h$ "couches" de noeuds. Le cas où il y a le moins de noeuds est celui où les couches sont le moins remplies. Pour cela, on considère le cas où il n'y a qu'un seul noeud par couche (ce genre d'arbre s'appelle arbre #imp[en peigne]). On a alors $n = h+1$ (essayez de bien comprendre le +1 via un dessin).
-    - De même, le pire cas est celui où chaque noeud a 2 fils, dans ce cas, chaque couche de hauteur $k$ a $2^h$ noeuds. On obtient donc $sum_(k=0)^(h) 2^k = 2^(h+1) -1$. Cette somme est une somme géométrique, qui est au programmde terminale et vous en aurez souvent besoin.
+    - De même, le pire cas est celui où chaque noeud a 2 fils, dans ce cas, chaque couche de hauteur $k$ a $2^h$ noeuds. On obtient donc $sum_(k=0)^(h) 2^k = 2^(h+1) -1$. Cette somme est une somme géométrique, qui est au programme terminale et vous en aurez souvent besoin.
 
     2. #imp[Question capitale pour vérifier si le raisonnement inductif est compris]. 
     - Si l'arbre est vide, on a sa hauteur qui vaut -1 et son nombre de noeud qui vaut 0, donc $0 <= 0 <= 0$.
@@ -988,38 +992,38 @@ def hauteur(a):
 ]
 
 #exo_nd(title: "Parchemin, le retour")[
-On considère le type parchemin définie dans l'exercice Palindrome du chapitre 2.
+On considère le type parchemin défini dans l'exercice Palindrome du chapitre 2.
 
 Montrez que n'importe quel mot peut être encodé par ce type.
 ]
 
 #exo_nd(title: "Array to List")[
-    1. Ecrire une fonction qui prend en entrée un tableau et renvoie la liste correspondante.
-    2. Ecrire une fonction qui prend en entrée une liste et renvoie le tableau correspondant.
+    1. Écrire une fonction qui prend en entrée un tableau et renvoie la liste correspondante.
+    2. Écrire une fonction qui prend en entrée une liste et renvoie le tableau correspondant.
 ]
 
 #exo_nd(title: "Parcours d'un arbre")[
-    On définie le parcours #imp[préfixe] d'un arbre de la sorte :
+    On définit le parcours #imp[préfixe] d'un arbre de la sorte :
     - Quand on arrive à un noeud qui a pour enfant $(g,d)$, on fait une action sur le noeud (on le parcourt, ça peut être l'afficher par exemple), puis on rappelle le parcours sur $g$ et après sur $d$.
 
-    1. Dessinez un arbre de hauteur 2, donnez-en le parcours préfixe. #ita[De manière générale, c'est important en prépa de toujours prendre des exemples simples et appliquer les algorithmes qu'on nous donne, même si ce n'est pas demandé.]
+    1. Dessinez un arbre de hauteur 2, donnez-en le parcours préfixe. #ita[De manière générale, c'est important en prépa de toujours prendre des exemples simples et d'appliquer les algorithmes qu'on nous donne, même si ce n'est pas demandé.]
     
     2. Montrez que tous les noeuds de l'arbre sont ainsi parcourues.
 
-    3. Est-ce que parcourir le noeud avant ses fils, entre ses fils, ou après ess fils change quelque chose à la propriété de la question 2?
+    3. Est-ce que parcourir le noeud avant ses fils, entre ses fils, ou après ses fils change quelque chose à la propriété de la question 2?
 ]
 
 #exo_nd(title: "Arbre binaire de recherche ", etoile: 3)[
-    On définie un arbre binaire étiquetté comme un arbre binaire où les noeuds ont une valeur (un entier par exemple). 
+    On définit un arbre binaire étiqueté comme un arbre binaire où les noeuds ont une valeur (un entier par exemple). 
 
-    Un arbre binaire est dit de recherche si il a la propriété suivante :
+    Un arbre binaire est dit de recherche s'il a la propriété suivante :
     Pour tous noeuds $n = (x,g,d)$ #ita[(valeur $x$, fils gauche $g$ et fils droit $d$)], on a que si $y$ est une valeur dans $g$, alors $y<=x$ et si $y$ est une valeur dans $d$, alors $y>x$.
 
     1. Est-ce grave si on modifie $y>x$ par $y<=x$ ?
 
     2. Où se trouve le maximum d'un arbre binaire de recherche ? Le minimum ?
 
-    3. Est-ce que, étant donné un arbre binaire quelconque, on peut permutter ses valeurs de manière à avoir un arbre binaire de recherche ?
+    3. Est-ce que, étant donné un arbre binaire quelconque, on peut permuter ses valeurs de manière à avoir un arbre binaire de recherche ?
 
     4. Pourquoi, selon vous, appelle-t-on ces arbres "de recherche" ?
 
@@ -1029,13 +1033,13 @@ Montrez que n'importe quel mot peut être encodé par ce type.
 
     7. Est-ce qu'inverser $y<=x$ et $y>x$ est gênant ?
     
-    8. Quelle forme voudrions-nous que l'arbre est pour que la recherche soit efficace ?
+    8. Quelle forme voudrions-nous que l'arbre ait pour que la recherche soit efficace ?
 ]
 
 #exo_nd(title: "Tri par tas")[
     On appelle #imp[tas max] un arbre binaire tel que tout élément est inférieur à son père #ita[(on peut définir de même les tas min)] et qui est complet sauf éventuellement sur la dernière ligne, et cette dernière ligne est remplie de gauche à droite. Un arbre binaire est dit complet si chaque hauteur possède $2^h$ noeuds.
 
-    La définition d'un tas permet de le voir comme un tableau, en effet, on met le premier élément à la racine, les éléments 2 et 3 sont ses fils, les élément 4 et  5 les fils du deuxième, les éléments 6 et 7 les fils du 3, ainsi de suite (on parle de #imp[parcours en largeur] d'un arbre).
+    La définition d'un tas permet de le voir comme un tableau, en effet, on met le premier élément à la racine, les éléments 2 et 3 sont ses fils, les éléments 4 et 5 les fils du deuxième, les éléments 6 et 7 les fils du 3, ainsi de suite (on parle de #imp[parcours en largeur] d'un arbre).
 
     1. Donnez une relation qui donne pour un noeud $i$ l'indice de ses fils dans le tableau et l'indice de son père.
 
@@ -1049,7 +1053,7 @@ Montrez que n'importe quel mot peut être encodé par ce type.
 ]
 
 #exo_nd(title: "Artihmétique", etoile: 3)[
-    On définie le type `Calcul` de cette façon :
+    On définit le type `Calcul` de cette façon :
     ```
     Calcul est un de ces éléments:
         - Entier(n)
@@ -1073,18 +1077,18 @@ Montrez que n'importe quel mot peut être encodé par ce type.
 ]
 
 #exo_nd(title: "Interpréteur", etoile: 4)[
-  Ecrire un programme qui prend en entrée une chaîne de caractères représentant un calcul valide (par exemple `"(1+2)*3 - (4 / 5)"`) et l'évaluant.
+  Écrire un programme qui prend en entrée une chaîne de caractères représentant un calcul valide (par exemple `"(1+2)*3 - (4 / 5)"`) et l'évaluer.
 
   #rem[On pensera à d'abord faire l'exercice disponible dans la section Récursivité qui vous fait coder la fonction `atoi` (qui prend en entrée une chaîne de caractères contenant uniquement des entiers et renvoie le nombre associé)]
 ]
 
 #exo_nd(title: "Fusion croissante", etoile: 3)[
 
-  1. Ecrire un algortihme qui prend en entrée 2 listes triées par ordre croissant et qui renvoie une liste triée correspondant à la concaténation de ces deux listes.
+  1. Écrire un algorithme qui prend en entrée 2 listes triées par ordre croissant et qui renvoie une liste triée correspondant à la concaténation de ces deux listes.
 
   2. En donner la complexité (si elle n'est pas linéaire, vous pouvez essayer d'améliorer votre algorithme)
 
-  3. Ecrire un algorithme qui prend en entrée $k$ listes triées par ordre croissant et qui renvoie une liste triée correspondant à la concaténation de ces $k$ listes.
+  3. Écrire un algorithme qui prend en entrée $k$ listes triées par ordre croissant et qui renvoie une liste triée correspondant à la concaténation de ces $k$ listes.
 
   ($star star star$)4. Quelle en est la complexité ? (on peut trouver en $O(n log(k))$ avec $n$ le nombre total d'éléments si on utilise une file de priorité)
 ]
@@ -1093,7 +1097,7 @@ Montrez que n'importe quel mot peut être encodé par ce type.
 = Raisonnement dynamique
 
 == Introduction
-C'est au programme de N.S.I. mais ce n'est visiblement pas ce que retiennent le mieux les élèves, il est donc important de refaire un point dessus, ce n'est pas compliqué mais il faut avoir compris l'objectif derrière. Commençons par poser la définition d'un raisonnement dynamique :
+C'est au programme de NSI. mais ce n'est visiblement pas ce que retiennent le mieux les élèves, il est donc important de refaire un point dessus, ce n'est pas compliqué mais il faut avoir compris l'objectif derrière. Commençons par poser la définition d'un raisonnement dynamique :
 
 #def(title: "Raisonnement dynamique")[
     On #imp[raisonne dynamiquement] quand on utilise des sous-solutions optimales pour générer des solutions optimales à des problèmes.
@@ -1104,7 +1108,7 @@ Bon, bon, bon... Cette définition est peut-être un peu floue, non ? Pas de pan
 
 Le principe d'un raisonnement dynamique est le suivant :
 - On a un gros problème à résoudre, un problème compliqué.
-- On trouve une manière de le #imp[découper] en différents intervalles tel que, si on souhaite résoudre le problème sur un intervalle plus gros, on ait juste à l'avoir résolue sur des intervalles plus petits.
+- On trouve une manière de le #imp[découper] en différents intervalles tels que, si on souhaite résoudre le problème sur un intervalle plus gros, on ait juste à l'avoir résolu sur des intervalles plus petits.
 - On calcule récursivement les valeurs dont on a besoin, puis on s'en sert pour résoudre le gros problème.
 
 Et c'est tout ! 
@@ -1114,17 +1118,17 @@ Et c'est tout !
 Voyons un exemple d'application à travers le problème dynamique le plus célèbre : #imp[le sac à dos].
 
 
-On a un sac à dos qui permet de porter un poids maximal $P_(m a x)$. On a devant nous $n$ objets, de valeurs $v_1,...,v_n$ et de poids $p_1,...,p_n$. On cherche à prendre des objets tel qu'on ne dépasse pas le poids $P_(m a x)$ et on cherche en même temps à maximiser la somme des valeurs des objets pris.
+On a un sac à dos qui permet de porter un poids maximal $P_(m a x)$. On a devant nous $n$ objets, de valeurs $v_1,...,v_n$ et de poids $p_1,...,p_n$. On cherche à prendre des objets tels qu'on ne dépasse pas le poids $P_(m a x)$ et on cherche en même temps à maximiser la somme des valeurs des objets pris.
 
 #exo_nd(title: "Premier découpage", etoile: 2)[
     Essayez de trouver vous-même comment découper ce problème.
 ]
 
-On va dynamiser ce problème en le découpant en intervalle de sous-problèmes. On pose $S_(i,p)$ le problème du sac-à-dos où on ne considère que les $i$ premiers objets et un poids maximal $p$.
+On va dynamiser ce problème en le découpant en intervalles de sous-problèmes. On pose $S_(i,p)$ le problème du sac-à-dos où on ne considère que les $i$ premiers objets et un poids maximal $p$.
 
 #imp[Quand on dynamise un problème, on doit s'assurer d'avoir des cases triviales], c'est l'équivalent de l'initialisation d'une récurrence ou d'un raisonnement inductif. Ici, si on a un poids maximal de 0 (sous réserve que chaque objet ait un poids non nul, ce qu'on supposera ici), on a un cas trivial et la valeur maximale est 0. De même, si on considère un seul objet, on peut très facilement résoudre la ligne correspondante ($0$ si $p <= p_1$ et $v_1$ sinon).
 
-Un fois que le découpage a été effectué et que nous avons trouvé les cases triviales, il faut réfléchir à une #imp[relation permettant de remplir les autres cases]. Il faut s'assurer que ce soit un ordre remplissable, ie qu'on ne tombe pas sur un raisonnement qui se mord la queue (pour avoir $(i,p)$ on a besoin de $(i',p')$ qui a lui-même besoin de $(i,p)$). Ici, on peut en trouver un.
+Une fois que le découpage a été effectué et que nous avons trouvé les cases triviales, il faut réfléchir à une #imp[relation permettant de remplir les autres cases]. Il faut s'assurer que ce soit un ordre remplissable, ie qu'on ne tombe pas sur un raisonnement qui se mord la queue (pour avoir $(i,p)$ on a besoin de $(i',p')$ qui a lui-même besoin de $(i,p)$). Ici, on peut en trouver un.
 
 #exo_nd(title: "Relation")[
     Essayez de trouver par vous-même une relation permettant de remplir le tableau (et par conséquent un ordre de remplissage).
@@ -1138,7 +1142,7 @@ $p_(i,p) = m a x(v_i + p_(i-1,p-p_i), p_(i-1,p))$ si $p -p_i >= 0$ et $p_(i,p) =
 
 On a une relation de récurrence, qui permet effectivement un remplissage puique pour remplir une case $(i,p)$ on n'a besoin que de cases strictement avant.
 
-Ainsi, ce problème est résolue dynamiquement !
+Ainsi, ce problème est résolu dynamiquement !
 #rem[Si ça vous semble trop compliqué, pas de panique, vous trouverez dans la section exercice des exercices beaucoup plus abordables sur la programmation dynamique.]
 
 == Plus long facteur commun
@@ -1146,7 +1150,7 @@ Ainsi, ce problème est résolue dynamiquement !
 Voici un deuxième exemple, beaucoup plus compliqué, réservez-le en deuxième lecture ! 
 
 
-Etant donné deux mots $a$ et $b$, on appelle #imp[plus long facteur commun] de $a$ et $b$ le plus long mot $w$ tel que $w$ apparaisse dans $a$ et apparaisse dans $b$ (pas forcément à la suite, mais avec des indices strictement croissants) . Par exemple, si on prend `ABRICOTS` et `ABRIBUS`,le plus grand facteur sera `ABRIS` #imp[avec un S]. Voyons comment résoudre ce problème grâce à un raisonnement dynamique :
+Étant donné deux mots $a$ et $b$, on appelle #imp[plus long facteur commun] de $a$ et $b$ le plus long mot $w$ tel que $w$ apparaisse dans $a$ et apparaisse dans $b$ (pas forcément à la suite, mais avec des indices strictement croissants) . Par exemple, si on prend `ABRICOTS` et `ABRIBUS`,le plus grand facteur sera `ABRIS` #imp[avec un S]. Voyons comment résoudre ce problème grâce à un raisonnement dynamique :
 
 On note $n$ la taille de $a$ et $p$ la taille de $b$. On va découper notre problème selon le préfixe de $u$ et $v$ que l'on regarde (un préfixe est un mot de la forme $u_1 ... u_i$). On a alors un tableau de cette forme :
 
@@ -1173,12 +1177,12 @@ Enfin, on fait attention dans le premier cas à tout de même proposer l'autre s
 
 == Exercices
 
-#exo_nd(title: "Montrer un escalier peut-être mathématiques...")[
+#exo_nd(title: "Monter un escalier peut être mathématique...")[
   Vous avez devant vous un escalier de $n$ marches. (On peut supposer $n <= 10 000$ car de toute façon, vous n'aurez pas le courage de monter plus de 10 000 marches).
 
-  À chaque marches, vous pouvez soit en monter 2 d'un coup, soit une seule. Combien de manières différentes avez-vous de monter l'esaclier ?
+  À chaque marche, vous pouvez soit en monter 2 d'un coup, soit une seule. Combien de manières différentes avez-vous de monter l'escalier ?
 
-  Par exmeple, pour $n=2$ on attend une réponse de 2 : 1 marchep puis 1 marche ou 2 marches.
+  Par exemple, pour $n=2$ on attend une réponse de 2 : 1 marche puis 1 marche ou 2 marches.
 
   Quelle est la complexité de votre algorithme ?
     
@@ -1187,13 +1191,13 @@ Enfin, on fait attention dans le premier cas à tout de même proposer l'autre s
 #exo_nd(title: "Escalier à coûts", etoile: 2)[
   On se place dans le même contexte que l'exercice précédent, sauf que chaque marche a un coût. Par exemple, au lieu d'avoir $n=4$, on peut prendre `[2,1,10,1]` et dans ce cas, on préfèrera faire `[2,1,1]` (1 marche puis 2 marches) plutôt que de commencer par prendre les deux marches.
 
-  Ecrier un programme qui prend en entrée un tableau correspondant aux prix des marches et qui renvoie le coût minimal.
+  Ecrire un programme qui prend en entrée un tableau correspondant aux prix des marches et qui renvoie le coût minimal.
 ]
 
 #exo_nd(title: "Triangle de Pascal")[
-  Si vous ne savez pas ce qu'est un triangle de Pascal, je vous invite à regarder sur Google ou dans ovter cours de Maths de terminale.
+  Si vous ne savez pas ce qu'est un triangle de Pascal, je vous invite à regarder sur Google ou dans votre cours de Maths de terminale.
 
-  Ecrire un algorithme qui prend en entrée un entier $n$ et renvoie un tableau qui correpond aux $n$ premières étages du triangle de Pascal. Par exemple, pour $n=3$, on renverra `[[1],[1,1],[1,2,1]]`.
+  Ecrire un algorithme qui prend en entrée un entier $n$ et renvoie un tableau correspondant aux $n$ premiers étages du triangle de Pascal. Par exemple, pour $n=3$, on renverra `[[1],[1,1],[1,2,1]]`.
 ]
 
 #exo_nd(title: "Théorie des jeux par la programmation dynamique", etoile: 3)[
@@ -1203,38 +1207,38 @@ Enfin, on fait attention dans le premier cas à tout de même proposer l'autre s
 
   Le joueur 1 (qui commence à jouer) gagne si son score est supérieur ou égal à celui du joueur 2. Sinon, il perd.
 
-  Ecrire une fonction `peut_gagner(tab)` qui prend en entrée un tableau de jeu et renvoie `True` si le joueur 1 a un moyen de gagner et `False` sinon.
+  Écrire une fonction `peut_gagner(tab)` qui prend en entrée un tableau de jeu et renvoie `True` si le joueur 1 a un moyen de gagner et `False` sinon.
 ]
 
 #pl(title: "Intuition sur la théorie des jeux")[
-  Ici, on demande à ce que le joueur 1 ait "au moins un" moyen de gagner. En fait, c'est parce que #imp[indépendamment] ce que fait son adversaire, il pourra toujours jouer #imp[au moins un coup] qui lui permet d'être sûr de gagner. Ainsi, quand vous ferez de la théorie des jeux en deuxième année, la condition de victoire pour un joueur est la suivant :
+  Ici, on demande à ce que le joueur 1 ait "au moins un" moyen de gagner. En fait, c'est parce que #imp[indépendamment] de ce que fait son adversaire, il pourra toujours jouer #imp[au moins un coup] qui lui permet d'être sûr de gagner. Ainsi, quand vous ferez de la théorie des jeux en deuxième année, la condition de victoire pour un joueur est la suivante :
 
-  Pour tous choix du joueur 2, il existe une série de coups du joueur 1 qui lui permet de gagner.
+  Pour tout choix du joueur 2, il existe une série de coups du joueur 1 qui lui permet de gagner.
 
   On ne demande en particulier pas à ce que tous les coups du joueur 1 lui permettent de gagner.
 ]
 
 #exo_nd(title: "((()))((()))", etoile: 3)[
-  Ecrire une fonction qui prend un entier $n$ et renvoie le nombre de manières que l'on a de disposer $n$ parenthèses (donc $2n$ si on compte ouvrantes et fermantes) en respectant un parenthésage correct (quand on ferme une parenthèse, il y en avait au moins une qui était ouverte)
+  Écrire une fonction qui prend un entier $n$ et renvoie le nombre de manières que l'on a de disposer $n$ parenthèses (donc $2n$ si on compte ouvrantes et fermantes) en respectant un parenthésage correct (quand on ferme une parenthèse, il y en avait au moins une qui était ouverte)
 ]
 
 #exo_nd(title: "Distance d'édition (de Levenshtein)", etoile: 4)[
 On appelle distance d'édition entre deux mots la distance minimale d'une série d'opérations qui permettent de passer de $u$ à $v$. Les opérations sont les suivantes (applicables uniquement à $u$, $v$ reste fixe) :
 
 - Ajouter une lettre dans $u$ pour un coût de 1
-- Supprimer un lettre de $u$ pour un coût de 1
+- Supprimer une lettre de $u$ pour un coût de 1
 - Remplacer une lettre de $u$ par une autre pour un coût de 1.
 
 Par exemple la distance d'édition de `MP2I` à `MPI` est 1 en supprimant `2` dans `MP2I`. Cependant, on aurait aussi pu s'amuser à remplacer le `I` par un `2` et supprimer le `2` initialement présent, on aurait eu une distance de 2 : on fera attention à bien renvoyer la distance minimale.
 
-Etant donné deux mots $u$ et $v$, donnez la distance d'édition entre $u$ et $v$ à l'aide d'un algorithme dynamique.
+Étant donné deux mots $u$ et $v$, donnez la distance d'édition entre $u$ et $v$ à l'aide d'un algorithme dynamique.
 
 ]
 
 #exo_nd(title: "Piège à eau", etoile: 4)[
   On vous donne un $n in NN$ représentant des niveaux d'élévations du sol. Par exemple, si on prend le tableau `[2;1;2]`, on a un mur de taille 2, un mur de taille 1 puis un mur de taille 2 (dans l'ordre, posé horizontalement, ils sont tous de largeur 1)
 
-  Etant donné un entier $n$ et un tableau correspondant, combien de case d'eau peut-on emprisonner ? (Imaginez qu'il pleut, combien de cases peuvent contenir de l'eau en ayant un mur à gauche et à droite)
+  Étant donné un entier $n$ et un tableau correspondant, combien de case d'eau peut-on emprisonner ? (Imaginez qu'il pleut, combien de cases peuvent contenir de l'eau en ayant un mur à gauche et à droite)
 ]
 
 = Retour sur trace $star$
@@ -1248,22 +1252,22 @@ Jusqu'à présent on considérait des problèmes dans lesquels on pouvait trouve
   Un algorithme bruteforce est un algorithme qui, étant donné un problème et un ensemble possible de solutions, essaye toutes les solutions jusqu'à en trouver une ou toutes dans le domaine voulu.
 ]
 
-Par exemple si vous savez que le mot-de-passe est de taille 12, vous allez générer tous les mots de passe possibles de 12 caractères jusqu'à trouver le bon.
+Par exemple, si vous savez que le mot de passe est de taille 12, vous allez générer tous les mots de passe possibles de 12 caractères jusqu'à trouver le bon.
 
 #exo_nd(title: "Bruteforce",etoile:1)[
-  1. Ecrire un algorithme python qui prend en entrée un mot de taille 8 et qui essaye tous les mots de taille 8 jusqu'à trouver celui passé en entrée
-  2. Ecrire un algorithme python qui prend en entrée un mot de taille $<= 8$ et qui essaye tous les mots nécessaires jusqu'à trouver celui passé en entrée (on n'utilisera pas `len` sur l'entrée).
+  1. Écrire un algorithme python qui prend en entrée un mot de taille 8 et qui essaye tous les mots de taille 8 jusqu'à trouver celui passé en entrée.
+  2. Écrire un algorithme python qui prend en entrée un mot de taille $<= 8$ et qui essaye tous les mots nécessaires jusqu'à trouver celui passé en entrée (on n'utilisera pas `len` sur l'entrée).
 ]
 
 == Retour sur trace
 
-Pour certains problèmes, tester #imp[toutes] les solutions est une perte de temps, par exemple si on prend une grille de sudoku déjà remplie et qu'il nous reste les cases $c_1,...,c_k$ à remplir, l'algorithme bruteforce va tester toutes les valeurs de $[|1;9|]$ dans chaque $c_i$ (ça fait beaucoup de possibilités). Pourtant si on a déjà remplies $c_1,...,c_(p < k)$ et que la solution actuelle a deux lignes (ou colonnes, ou carrés) qui ont la même valeur, toutes les solutions $c_1,...,c_p,...,c_k$ seront fausses. On a donc envie de #imp[s'arrêter dès qu'on a fait une erreur].
+Pour certains problèmes, tester #imp[toutes] les solutions est une perte de temps, par exemple si on prend une grille de sudoku déjà remplie et qu'il nous reste les cases $c_1,...,c_k$ à remplir, l'algorithme bruteforce va tester toutes les valeurs de $[|1;9|]$ dans chaque $c_i$ (ça fait beaucoup de possibilités). Pourtant, si on a déjà rempli $c_1,...,c_(p < k)$ et que la solution actuelle a deux lignes (ou colonnes, ou carrés) qui ont la même valeur, toutes les solutions $c_1,...,c_p,...,c_k$ seront fausses. On a donc envie de #imp[s'arrêter dès qu'on a fait une erreur].
 
 #def(title: "Retour sur trace")[
-  On considére la solution vide (qui est valide si l'entrée l'est, si elle ne l'est pas le problème n'a pas de solution). Ensuite, pour chaque position on essaye toutes les valeurs possibles et dès qu'on arrive à une solution partielle fausse (fausse selon une fonction qu'on se donne en entrée qui vérifie qu'une solution partielle reste une solution partielle si on modifie $c$ pour la valeur $v$) on #imp[passe à la valeur suivante pour la case actuelle si possible, et sinon on renvoie faux].
+  On considère la solution vide (qui est valide si l'entrée l'est, si elle ne l'est pas le problème n'a pas de solution). Ensuite, pour chaque position on essaye toutes les valeurs possibles et dès qu'on arrive à une solution partielle fausse (fausse selon une fonction qu'on se donne en entrée qui vérifie qu'une solution partielle reste une solution partielle si on modifie $c$ pour la valeur $v$) on #imp[passe à la valeur suivante pour la case actuelle si possible, et sinon on renvoie faux].
 ]
 
-Faisons un exemple concret: On va écrire un algorithme qui créé des couples de personnes selon des contraintes (soit $A$ et $B$ veulent absolument être ensemble, soit ils s'en moquent, soit ils ne veulent pas du tout être ensemble).
+Prenons un exemple concret: On va écrire un algorithme qui crée des couples de personnes selon des contraintes (soit $A$ et $B$ veulent absolument être ensemble, soit ils s'en moquent, soit ils ne veulent pas du tout être ensemble).
 
 Entrée: ```(Alice veut être avec Bob), (Bob veut être avec Alice), (Charlie ne veut pas être avec Bob), (Charlie se moque de Eve), (Eve se moque de Charlie)```
 
@@ -1297,7 +1301,7 @@ Algorithme à la main:
 - On n'a plus personne à modifier: c'est perdu.
 ```
 
-Donnons un dernier exemple, qui cette fois-ci réussie mais après un essai infrucuteux. Vous #imp[noterez bien l'effacement des choix à chaque erreur]
+Donnons un dernier exemple, qui, cette fois-ci réussi mais après un essai infructueux. Vous #imp[noterez bien l'effacement des choix à chaque erreur]
 Entrée: ```(A moque B), (B moque A), (C veut A), (D se moque de tout le monde)```
 Algorithme à la main:
 ```
@@ -1341,22 +1345,22 @@ Les exercices sont durs et cette notion sera intégralement revue en MP2I donc j
 ]
 = Introduction aux graphes
 
-Les graphes font partie des points-clés du programme de MP2I et MPI, vous reprendrez de 0 en cours, mais il peut-être avantageux d'avoir déjà quelques notions en tête pour gagner du temps.
+Les graphes font partie des points-clés du programme de MP2I et MPI, vous reprendrez de 0 en cours, mais il peut être avantageux d'avoir déjà quelques notions en tête pour gagner du temps.
 
 
 == Qu'est-ce qu'un graphe
 
 #def(title: "Graphe non-orienté")[
-  Un graphe non-orienté est la donné d'un ensemble $S$ de sommets et d'un ensemble $A subset P(S times S)$ d'arêtes.
+  Un graphe non-orienté est la donnée d'un ensemble $S$ de sommets et d'un ensemble $A subset P(S times S)$ d'arêtes.
 ]
 
-C'est-à-dire qu'un graphe, c'est des sommets ($1$, $2$,... par exemple) et des relations entre les sommets qu'on appelle arête. On peut passer d'un sommet $i$ à un sommet $j$ sur un graphe si $\{i,j\} in A$ ($P(S times S)$ désigne les parties de $S times S$ ie un ensemble de couples de sommets).
+C'est-à-dire qu'un graphe, c'est des sommets ($1$, $2$,... par exemple) et des relations entre les sommets qu'on appelle arêtes. On peut passer d'un sommet $i$ à un sommet $j$ sur un graphe si $\{i,j\} in A$ ($P(S times S)$ désigne les parties de $S times S$ ie un ensemble de couples de sommets).
 
 #pl(title: "Notation ensembliste")[
-  Les plus attentifs auront remarqués qu'on note une arête $\{i,j\}$ et non $(i,j)$. C'est car on est sur un graphe non-orienté, ie on peut aller de $i$ à $j$ par une arête si et seulement si on peut aller de $j$ à $i$ en une arête. Un ensemble n'a pas de notion d'ordre, par exemple $\{1,2\} = \{2,1\}$. Par contre, quand on parle de graphe orienté, on utilise bien la notation $(i,j)$.
+  Les plus attentifs auront remarqué qu'on note une arête $\{i,j\}$ et non $(i,j)$. C'est car on est sur un graphe non-orienté, ie on peut aller de $i$ à $j$ par une arête si et seulement si on peut aller de $j$ à $i$ en une arête. Un ensemble n'a pas de notion d'ordre, par exemple $\{1,2\} = \{2,1\}$. Par contre, quand on parle de graphe orienté, on utilise bien la notation $(i,j)$.
 ]
 
-Pour avoir les idées fixes, donnons un premier exemple de graphe. Modélisons le groupe d'ami d'Alice par un graphe tel que deux personnes soient reliées si elles se suivent mutuellement sur instagram.
+Pour avoir les idées fixes, donnons un premier exemple de graphe. Modélisons le groupe d'amis d'Alice par un graphe tel que deux personnes soient reliées si elles se suivent mutuellement sur Instagram.
 
 #figure(
   image("graph/premier_ex.jpg", width: 50%),
@@ -1378,13 +1382,13 @@ Par exemple, si on considère le graphe de la figure 1, on a le chemin `Jack,Wol
 Il existe différents types de chemins pouvant nous intéresser.
 
 #def(title: "Chemin élémentaire")[
-  Un chemin est dit #imp[élémentaire] si il ne passe pas deux fois par le même sommet.
+  Un chemin est dit #imp[élémentaire] s'il ne passe pas deux fois par le même sommet.
 ]
 
 On a alors notre première démonstration importante sur les graphes :
 
 #th(title: "Lemme de König")[
-  Si il existe, dans un graphe $G = (S,A)$ un chemin de $a$ à $b$, alors il exist un chemin élémentaire de $a$ à $b$. 
+  Si il existe, dans un graphe $G = (S,A)$ un chemin de $a$ à $b$, alors il existe un chemin élémentaire de $a$ à $b$. 
 ]
 
 #dem[
@@ -1395,7 +1399,7 @@ On a alors notre première démonstration importante sur les graphes :
 
 
 #exo_nd(title: "Chemin simple")[
- Un chemin est dit #imp[simple] si il ne passe pas deux fois par une même arête. Peut-on établir un résultat similaire au Lemme de König pour les chemins simples ? 
+ Un chemin est dit #imp[simple] s'il ne passe pas deux fois par une même arête. Peut-on établir un résultat similaire au Lemme de König pour les chemins simples ? 
 ]
 
 == Composante connexe
@@ -1427,7 +1431,7 @@ Voici un deuxième exemple :
 ]
 
 #exo_nd(title: "Est un cycle ?")[
-  Est-ce que, dans un graphe non-orienté, pour tout arête $\{i,j\} in A$, $(i,j,i)$ est un cycle ?
+  Est-ce que, dans un graphe non-orienté, pour toute arête $\{i,j\} in A$, $(i,j,i)$ est un cycle ?
 ]
 
 
@@ -1449,7 +1453,7 @@ Il y a deux manières "usuelles" de représenter un graphe :
 - Par matrice d'adjacence
 - Par liste d'adjacence
 
-Dans le premier cas, on représente les arêtes par un tableau 2-dimension tel que `tab[i][j]` soit à `True` si et seulement si l'arête reliant `i` à `j` est dans le graphe (et donc à `False` sinon). Dans le second, on a une liste par sommets et la liste du sommet `i` contient `j` si et seulemen,t si l'arête reliant `i` à `j` existe.
+Dans le premier cas, on représente les arêtes par un tableau 2-dimension tel que `tab[i][j]` soit à `True` si et seulement si l'arête reliant `i` à `j` est dans le graphe (et donc à `False` sinon). Dans le second, on a une liste par sommets et la liste du sommet `i` contient `j` si et seulement si l'arête reliant `i` à `j` existe.
 
 #exo_nd(title: "Représentation d'un graphe")[
   1. Représentez le graphe de la figure 3 sous forme de matrice d'adjacence
@@ -1498,11 +1502,11 @@ def parcours_prof(g):
 ]
 
 #exo_nd(title: "Réflexion sur la représentation")[
-  1. Quelle représentation est utilisé dans le code proposé ?
+  1. Quelle représentation est utilisée dans le code proposé ?
 
   2. Réécrivez le parcours en profondeur avec une autre représentation.
 
-  ($star star$)3. Quels sont les avantages et les désavantages de chacune des représentations en terme d'espace et de temps ? 
+  ($star star$)3. Quels sont les avantages et les désavantages de chacune des représentations en termes d'espace et de temps ? 
 ]
 
 == Graphes orientés
@@ -1510,12 +1514,12 @@ def parcours_prof(g):
 Il existe aussi des graphes qui sont #imp[orientés], c'est-à-dire qu'on ne prend plus les notations ensemblistes pour les arêtes. Voici la définition :
 
 #def(title: "Graphe orienté")[
-  Un graphe orienté est la donné d'un ensemble $S$ de sommets et d'un ensemble de couple, de sommets que l'on note $A$.
+  Un graphe orienté est la donnée d'un ensemble $S$ de sommets et d'un ensemble de couples, de sommets que l'on note $A$.
 ]
 
 #rem[Ainsi, un graphe orienté peut avoir une arête d'un sommet à lui-même, ce n'est pas interdit.]
 
-Voici un exemple de graphe orienté, on met une arête de $i$ à $j$ si $i$ suit $j$ sur instagram. Puisqu'il se peut que $i$ suive $j$ sans que $j$ suive $i$, un graphe orienté est plus adapté :
+Voici un exemple de graphe orienté, on met une arête de $i$ à $j$ si $i$ suit $j$ sur Instagram. Puisqu'il se peut que $i$ suive $j$ sans que $j$ suive $i$, un graphe orienté est plus adapté :
 
 #figure(
   image("graph/ex_graph_oriente.png", width: 30%),
@@ -1529,7 +1533,7 @@ Voici un exemple de graphe orienté, on met une arête de $i$ à $j$ si $i$ suit
 Puisque vous repartirez de zéro sur les graphes orientés en prépa, je vous propose de voir la suite du cours comme un exercice (ce qui est d'ailleurs le cas, tout est sous forme d'exercice).
 
 #exo_nd(title: "Circuit")[
- Dans un graphe orienté, on ne parle plus de cycle mais de circuit, la définition reste sinon presque la même. "Presque" à un détail près, qui est la question de cet exercice :
+ Dans un graphe orienté, on ne parle plus de cycles mais de circuits, la définition reste sinon presque la même. "Presque" à un détail près, qui est la question de cet exercice :
 
   Est-ce que dans un graphe orienté, un circuit à 2 sommets est effectivement un circuit ? (on a vu que pour un cycle il en fallait au moins 3)
 
@@ -1537,7 +1541,7 @@ Puisque vous repartirez de zéro sur les graphes orientés en prépa, je vous pr
 ]
 
 #exo_nd(title: "Parcours en profondeur")[
-  Ecrire un parcours en profondeur pour les graphes orientés.
+  Écrire un parcours en profondeur pour les graphes orientés.
 ]
 
 #exo_nd(title: "Détection de cycle", etoile: 3)[
@@ -1551,7 +1555,7 @@ Puisque vous repartirez de zéro sur les graphes orientés en prépa, je vous pr
 
   1. Pourquoi est-ce différent ? Proposez un exemple.
 
-  On définie alors une composante #imp[fortement connexe] comme un ensemble de sommets #imp[maximal au sens de l'inclusion] (ie on a oublié personne) tel que pour tout couple de sommets dedans, on est un chemin reliant le premier au deuxième et un reliant le deuxième au premier.
+  On définit alors une composante #imp[fortement connexe] comme un ensemble de sommets #imp[maximal au sens de l'inclusion] (ie on a oublié personne) tel que pour tout couple de sommets dedans, on est un chemin reliant le premier au deuxième et un reliant le deuxième au premier.
 
   ($star$) 2. Proposez un algorithme naïf pour donner les composantes fortement connexes.
   
@@ -1578,7 +1582,7 @@ Puisque vous repartirez de zéro sur les graphes orientés en prépa, je vous pr
 
 #exo_nd(title: "Autour de la connexité", source: "ENS ULM")[
   
-  On se donne dans cet exercice un graphe $G$ non-orienté. On définie $c(G)$ comme le coefficient correspondant au nombre minimum de sommets à retirer de $G$ pour obtenir un graphe non-connexe.
+  On se donne dans cet exercice un graphe $G$ non-orienté. On définit $c(G)$ comme le coefficient correspondant au nombre minimum de sommets à retirer de $G$ pour obtenir un graphe non-connexe.
 
   1. Que dire si $G$ n'est pas connexe ?
 
@@ -1593,13 +1597,13 @@ Puisque vous repartirez de zéro sur les graphes orientés en prépa, je vous pr
 
 ]
 #exo_nd(title: "Graphes biparties")[
-  Un graphe non-orienté est dit bipartie si il existe deux ensembles $A$ et $B$ de sommets tel que tout arêtes $e$ du graphe connecte un sommet de $A$ et un sommet de $B$, ie il n'y a jamais d'arêtes au sein d'une même composante.
+  Un graphe non-orienté est dit bipartie si il existe deux ensembles $A$ et $B$ de sommets tels que toute arête $e$ du graphe connecte un sommet de $A$ et un sommet de $B$, i.e. il n'y a jamais d'arêtes au sein d'une même composante.
 
   1. Est-ce que tout graphe peut se mettre sous une forme bipartie ?
 
   2. Dessinez un graphe bipartie à 5 noeuds. Pouvez-vous en proposer un à $n$ sommets pour $n in NN$ ? (#ita[ne cherchez pas trop loin])
 
-  ($star star star$)3. Ecrire un algorithme qui prend en entrée un graphe et renvoie Vrai si il est bipartie et Faux sinon. 
+  ($star star star$)3. Écrire un algorithme qui prend en entrée un graphe et renvoie Vrai s'il est bipartie et Faux sinon. 
 ]
 
 #exo_nd(title: "Au moins deux solitaires", source: "J. Erickson", etoile: 2)[
@@ -1637,7 +1641,7 @@ mot2 = 'mot2'
 
 Il n'y a pas de distinction entre `''` et `""`. Heureusement pour vous, #imp[en OCaml et en C il y a une distinction] !
 
-Pour coder une lettre d'un alphabet $Sigma$, on utile `''`, et on appelle les objets de ce type des #imp[caractères].
+Pour coder une lettre d'un alphabet $Sigma$, on utilise `''`, et on appelle les objets de ce type des #imp[caractères].
 
 Pour coder un ensemble de lettres, un #imp[mot] (qu'on appelle le type `string`), on utilise `""`.
 
@@ -1647,7 +1651,7 @@ Pour coder un ensemble de lettres, un #imp[mot] (qu'on appelle le type `string`)
 
 Le problème le plus classique quand on parle de mots est sans doute le problème de recherche : est-ce qu'un texte `t` contient au moins une itération du mot `w` (qui peut aussi être un texte) ?
 
-L'idée naïve est de tester à chaque indice (un indice est la position d'un "curseur" qui lit le texte, on commence en $0$) si le texte qui commence à l'indice est celui qui nous intéresse suivie d'autre chose.
+L'idée naïve est de tester à chaque indice (un indice est la position d'un "curseur" qui lit le texte, on commence en $0$) si le texte qui commence à l'indice est celui qui nous intéresse suivi d'autre chose.
 
 Par exemple, si on cherche `GAIA` dans `TAGAGAIA` :
 
@@ -1664,7 +1668,7 @@ On a `T` $!=$ `G`, donc on décale d'un indice :
 On a `G` $!=$ `A`. On continue et on finit par trouver le motif `GAIA` à la fin du texte.
 
 
-C'est l'algorithme le plus naïf et il suffit pour des petits tetes.
+C'est l'algorithme le plus naïf et il suffit pour des petits textes.
 
 #exo_nd(title: "Quelques applications")[
   1. Codez cet algorithme en Python
@@ -1685,14 +1689,14 @@ Cet algorithme sert à optimiser le décalage : on ne va plus décaler 1 à 1 à
 
 La première idée non intuitive de cet algorithme est de #imp[lire de droite à gauche et non de gauche à droite]. Vous pourrez réfléchir à la raison de ce choix en exercice de la section.
 
-On va #imp[pré-calculer] un tableau uni-dimensionnel où on stockera les différents décalages que l'on obtient. Pour cela, on se sert de la lecture de droite à gauche, si on veut chercher `ababb` dans `abbaababbab` :
+On va #imp[pré-calculer] un tableau unidimensionnel où on stockera les différents décalages que l'on obtient. Pour cela, on se sert de la lecture de droite à gauche, si on veut chercher `ababb` dans `abbaababbab` :
 
 ```
 abbaababbab
 ababb
 ```
 
-La première erreur est au premier test (`b` $!=$ `a`), on cherche alors le derneier `a` du mot et on vient le coller sur le `a` qui a fait l'erreur. En cherchant le dernier, on s'assure de ne rater aucune possibilité (toutes les autres auraient échoués, au moins une fois sur ce caractère). Ainsi on cherche de la sorte :
+La première erreur est au premier test (`b` $!=$ `a`), on cherche alors le dernier `a` du mot et on vient le coller sur le `a` qui a fait l'erreur. En cherchant le dernier, on s'assure de ne rater aucune possibilité (toutes les autres auraient échouées, au moins une fois sur ce caractère). Ainsi on cherche de la sorte :
 
 ```
 abbaababbab
@@ -1704,7 +1708,7 @@ Le décalage doit donc permettre de faire correspondre le caractère qui a fait 
 #exo_nd(title: "Pré-calcul")[
   Donnez un code qui prend en entrée un motif et renvoie la table à pré-calculer.
 
-  #rem[On pourra utilsier les 256 premiers éléments de la table ASCII pour le tableau et utiliser $-1$ comme valeur indiquant qu'il n'y a aucune itération.]
+  #rem[On pourra utiliser les 256 premiers éléments de la table ASCII pour le tableau et utiliser $-1$ comme valeur indiquant qu'il n'y a aucune itération.]
 ]
 
 Maintenant, il faudrait savoir utiliser ce tableau pré-calculé. On se place dans une recherche quelconque. On est actuellement à l'indice $j$ dans le motif et on a commencé la recherche sur un indice $i$. On arrive à deux caractères différents, $x$ pour le motif et $y$ pour le texte. Par exemple, si on est dans la situation suivante :
@@ -1717,8 +1721,8 @@ GGATATTAGCCAGCA
 On a $i = 4$, $j = 3$ (on est à la 5ème lettre du texte et on est à la 4ème du motif), $x=G$ et $y=T$. On a alors 3 cas à distinguer :
 
 - Si $t a b l e[y] = -1$, on n'a pas de $y$ dans le motif, donc on ne peut pas réussir notre recherche, ainsi on décale après l'indice actuel, qui est $i+j$. Donc on se place en $i+j+1$.
-- Si $t a b l e[y] < j$, la dernière occurence de $y$ dans le motif est avant la lettre considérée, on veut alors la faire correspondre, pour cela on relance une recherche en $i + j - t a b l e[y]$
-- Si $t a b l e [y] > j$ on ne peut pas décaler (ça reviendrait à revenir en erreur), donc on fait simplement $+1$ pour être sur de ne rater aucune possibilité.
+- Si $t a b l e[y] < j$, la dernière occurrence de $y$ dans le motif est avant la lettre considérée, on veut alors la faire correspondre, pour cela on relance une recherche en $i + j - t a b l e[y]$
+- Si $t a b l e [y] > j$ on ne peut pas décaler (ça reviendrait à revenir en erreur), donc on fait simplement $+1$ pour être sûr de ne rater aucune possibilité.
 
 #exo_nd(title : "Justification")[
 
@@ -1756,7 +1760,7 @@ Vous avez désormais vu la totalité des points de cours importants pour aborder
 
 === Introduction à Coin Coin
 
-#imp[Les autres] 90% du temps (statistique personnelle) les erreurs ne se jouent qu'à un +1, qu'à un -1, qu'à un $<=$ qui devait être un $>=$ ou qu'à un $i$ qui était en fait un $j$. Le reste du temps, il faut reprendre précisemment le #imp[cheminement de votre code] pour trouver l'endroit qui le fait buguer. Le meilleur moyen pour le trouver est d'expliquer votre code dans votre tête, de la manière la plus précise possible. C'est un peu comme la maïeutique de Socrate sauf qu'ici c'est vous-même qui vous interrogez. Vous pouvez évidemment expliquer votre code à un ami, mais il ne servira que de  figuration et il perdra juste son temps, le mieux est d'investir dans cet outil révolutionnaire :
+#imp[Les autres] 90% du temps (statistique personnelle) les erreurs ne se jouent qu'à un +1, qu'à un -1, qu'à un $<=$ qui devait être un $>=$ ou qu'à un $i$ qui était en fait un $j$. Le reste du temps, il faut reprendre précisément le #imp[cheminement de votre code] pour trouver l'endroit qui le fait buguer. Le meilleur moyen pour le trouver est d'expliquer votre code dans votre tête, de la manière la plus précise possible. C'est un peu comme la maïeutique de Socrate sauf qu'ici c'est vous-même qui vous interrogez. Vous pouvez évidemment expliquer votre code à un ami, mais il ne servira que de  figuration et il perdra juste son temps, le mieux est d'investir dans cet outil révolutionnaire :
 #figure(
   image("images/canard.jpg", width: 50%),
   caption: [
@@ -1764,7 +1768,7 @@ Vous avez désormais vu la totalité des points de cours importants pour aborder
   ],
 )
 
-Dès que vous avez un problème, parlez-en à Coin Coin (Coin pour les intimes) et en lui expliquant votre problème #imp[très précisemment], il vous soufflera la solution. Cependant, pour que ça marche il faut parler correctement à Coin Coin. Voici donc les règles à suivre quand vous parlez à Coin Coin :
+Dès que vous avez un problème, parlez-en à Coin Coin (Coin pour les intimes) et en lui expliquant votre problème #imp[très précisément], il vous soufflera la solution. Cependant, pour que ça marche il faut parler correctement à Coin Coin. Voici donc les règles à suivre quand vous parlez à Coin Coin :
 
 1. Ligne par ligne tu expliqueras.
 
@@ -1807,16 +1811,16 @@ i = input("Entrez un choix")
 if i=="0": f1()
 else: f2()
 ``` 
-Il va falloir mettre un `print` après le `i =`, ce qui permet d'être sûr que la fonction `input` marche bien (ici c'est immédiat mais si c'est votre propre fonction, il vaut mieux tester), si il s'affiche on en met un entre chaque exécution de `f1` et un entre chaque exécution de `f2` et on voit lesquelles font buguer directement dans le terminal en mettant une première fois 0 comme en entrée et une deuxième fois autre chose. Il ne vous reste plus qu'à faire pareil dans les exécutions qui font buguer, ou à parler à Coin Coin selon le contexte.
+Il va falloir mettre un `print` après le `i =`, ce qui permet d'être sûr que la fonction `input` marche bien (ici c'est immédiat mais si c'est votre propre fonction, il vaut mieux tester), s'il s'affiche on en met un entre chaque exécution de `f1` et un entre chaque exécution de `f2` et on voit lesquelles font buguer directement dans le terminal en mettant une première fois 0 comme en entrée et une deuxième fois autre chose. Il ne vous reste plus qu'à faire pareil dans les exécutions qui font buguer, ou à parler à Coin Coin selon le contexte.
 
 
 == Segmentation Fault
 
-Votre pire ennemi en prépa, de loin. En OCaml les erreurs sont assez précises en général, vous avez toujours au moins la ligne qui cause problème. En C c'est assez rare d'avoir la ligne, et il y a pire : quand le compileur ne marche pas et vous dit juste #imp[Segmentation Fault]. Cette erreur apparaît quand vous accédez à une partie de la mémoire qui ne vous est pas alloué, ainsi elle est compliquée à corriger car elle peut avoir des centaines de raisons d'apparaître (malloc avec les mauvaises bornes, accès à une zone mémoire que vous avez free, ...). Vous pouvez alors, et c'est ce qui va vous faire apprendre le plus (car vous rentrerez plus en détails dans le fonctionnement de `malloc`, des pointeurs etc en général) parler à Coin Coin pour trouver votre erreur (attention aux prints, `C` ne les affichera pas forcément en fonction des optimisations du compilateur).
+Votre pire ennemi en prépa, de loin. En OCaml les erreurs sont assez précises en général, vous avez toujours au moins la ligne qui cause problème. En C c'est assez rare d'avoir la ligne, et il y a pire : quand le compileur ne marche pas et vous dit juste #imp[Segmentation Fault]. Cette erreur apparaît quand vous accédez à une partie de la mémoire qui ne vous est pas allouée, ainsi elle est compliquée à corriger car elle peut avoir des centaines de raisons d'apparaître (malloc avec les mauvaises bornes, accès à une zone mémoire que vous avez free, ...). Vous pouvez alors, et c'est ce qui va vous faire apprendre le plus (car vous rentrerez plus en détail dans le fonctionnement de `malloc`, des pointeurs etc en général) parler à Coin Coin pour trouver votre erreur (attention aux prints, `C` ne les affichera pas forcément en fonction des optimisations du compilateur).
 
-Cependant, vous n'aurez peut-être pas le temps de faire ce travail à chaque fois (encore plus si vous avez bien assimilé les différentes notions). Il y a un outil qui existe : #imp[gdb]. Une fois vos fichiers compilés, vous pouvez lancer `gdb votre_fichier.extension_des_exec` (l'extension dépendant de l'os) et vous obtiendrez un terminal dont les lignes commencent par `(gdb)`. Une fois dedans, l'instruction `run` permet d'avancer dans le programme jusqu'à l'erreur, vous aurez alors le #imp[nom de la fonction qui vous a fait planter] et mieux, vous aurez accès à la mémoire actuelle du programme pour pouvoir voir l'état dans lequel vous êtes. (je vous laisse regarder la documentation de `gdb` à ce sujet, elle l'expliquera mieux que moi, en particulier vous pourrez y voir comment placer des #imp[breakpoints]) 
+Cependant, vous n'aurez peut-être pas le temps de faire ce travail à chaque fois (encore plus si vous avez bien assimilé les différentes notions). Il y a un outil qui existe : #imp[gdb]. Une fois vos fichiers compilés, vous pouvez lancer `gdb votre_fichier.extension_des_exec` (l'extension dépendant de l'OS) et vous obtiendrez un terminal dont les lignes commencent par `(gdb)`. Une fois dedans, l'instruction `run` permet d'avancer dans le programme jusqu'à l'erreur, vous aurez alors le #imp[nom de la fonction qui vous a fait planter] et mieux, vous aurez accès à la mémoire actuelle du programme pour pouvoir voir l'état dans lequel vous êtes. (je vous laisse regarder la documentation de `gdb` à ce sujet, elle l'expliquera mieux que moi, en particulier vous pourrez y voir comment placer des #imp[breakpoints]) 
 
-== Exercies de fin de partie
+== Exercices de fin de partie
 
 #exo_nd(title: "Débuguage de boucles",etoile :1)[
   ```python
@@ -1959,7 +1963,7 @@ int main() {
 1. Corrigez les SegFault.
 ]
 
-Des exercices plus compliqué sont à venir.
+Des exercices plus compliqués sont à venir.
 
 = Exercices sans thèmes précis
 
@@ -1974,11 +1978,11 @@ Des exercices plus compliqué sont à venir.
 
   Comment déterminer la personne qui est allée 2 fois à la mairie ?
 
-  #rem[À traiter une fois le chapitre sur les graphes lus.
+  #rem[À traiter une fois le chapitre sur les graphes lu.
 
   Indice 1 : Raisonner sur un exemple
 
-  Indice 2 : Essayer de représenter sur une frise le moment où les personnes sont à la Mairie.
+  Indice 2 : Essayer de représenter sur une frise le moment où les personnes sont à la mairie.
   ]
 ]
 
@@ -1986,7 +1990,7 @@ Des exercices plus compliqué sont à venir.
   Un concours national a lieu pour déterminer le meilleur pâtissier. Chaque personne a une note dans $[|0;100|]$.
 
   Problème, le concours a eu lieu dans $M$ lieux différents, chaque lieu possède une liste de candidat-note non triée.
-  Par exemple si il y a le candidat 1 qui a 80 points et le candidat 2 qui en a 0 (il ne faut pas le juger), on aura la liste `"(1-80)::(2-0)"` (il faut donc formatter les chaînes de caractères)
+  Par exemple si le candidat 1 a 80 points et le candidat 2 en a 0 (il ne faut pas le juger), on a la liste `"(1-80)::(2-0)"` (il faut donc formatter les chaînes de caractères)
   Chaque lieu a accueilli $N$ candidats.
 
   1. Comment obtenir la liste globale des candidats classés par ordre décroissant des notes (le meilleur est donc le premier) ?
@@ -1994,21 +1998,21 @@ Des exercices plus compliqué sont à venir.
   ($star star star$)2. Comment obtenir la liste globale des notes classées par ordre décroissant ? On attend une complexité $O(M times N)$.
 ]
 
-#exo_nd(title: "Selection aléatoire", etoile: 4)[
-  Etant donné un fil de données que vous ne pouvez parcourir qu'une seule fois, comment obtenir un élément de de manière uniforme ?
+#exo_nd(title: "Sélection aléatoire", etoile: 4)[
+  Étant donné un fil de données que vous ne pouvez parcourir qu'une seule fois, comment obtenir un élément de manière uniforme ?
 
   #rem[Indice : $1/2 times ... times (N-1)/N = 1/N$]
 ]
 
 #exo_nd(title: "k-ème minimum", etoile: 4)[
-  Etant donné une liste ou un tableau de $N$ valeurs, comment déterminer le $k$-ème minimum ?
+  Étant donné une liste ou un tableau de $N$ valeurs, comment déterminer le $k$-ème minimum ?
 
   On pourra fournir une solution en $O(k N)$ pour débuter, mais il existe (et on invite à chercher) une solution en $O(N times l o g (N))$.
 ]
 
 
 #exo_nd(title: "exo oxe eox oex ..." + $star star$)[
-  Etant donné un mot (une chaîne de caractères), afficher toutes les permutations de ce mot (attention, pour le mot `bob`, `bob` doit être affiché deux fois).
+  Étant donné un mot (une chaîne de caractères), afficher toutes les permutations de ce mot (attention, pour le mot `bob`, `bob` doit être affiché deux fois).
 
   #rem[(Indication) Commencer par générer les permutations de $[|1;n|]$]
 ]
@@ -2058,13 +2062,13 @@ Des exercices plus compliqué sont à venir.
 ]
 
 #corr(num:"2-6")[
-  1. On créé un tableau de taillt `n` et pour chaque `fib(k)`, si la case $k$ a déjà été remplie on renvoit sa valeur, sinon on calcule `fib(k)` avec `fib(k-1)` et `fib(k-2)` et on ajoute la valeur dans le tableau. Comme ça on calcule une seule fois chaque valeur de fibonacci et on a une complexité linéaire.
+  1. On créé un tableau de taille `n` et pour chaque `fib(k)`, si la case $k$ a déjà été remplie on renvoie sa valeur, sinon on calcule `fib(k)` avec `fib(k-1)` et `fib(k-2)` et on ajoute la valeur dans le tableau. Comme ça on calcule une seule fois chaque valeur de Fibonacci et on a une complexité linéaire.
   2. L'idée est de faire `fib` qui renvoie le couple $(u_(n-1),u_n)$. Je vous laisse chercher avec cette indication.
 ]
 
 #corr(num:"2-7")[
   1. $O(n)$
-  2. ça ne termine pas, on ne parle pas de complexité.
+  2. Ça ne termine pas, on ne parle pas de complexité.
   3. $O(max(t a b))$
   4. $O(1)$
   5. $O(n)$
@@ -2127,7 +2131,7 @@ Des exercices plus compliqué sont à venir.
 
 #corr(num:"5-4")[
   1. $h+1 <= n <= 2^(h+1) - 1 $. Pour cela considérer le pire cas et le meilleur cas (que 1 fils / que 2 fils)
-  2. ça sera fait en prépa.
+  2. Ça sera fait en prépa.
 ]
 
 #corr(num:"5-11")[
@@ -2137,7 +2141,7 @@ Des exercices plus compliqué sont à venir.
 == Chapitre 6
 
 #corr(num:"6-1")[
-  On fait deux cas: Celui dans lequel on prend l'objet et celui dans lequel on ne le prend pas. Et on fait un appel récursif dessus (toujours en considérant l'objet $k$, pour permettre de le prendre plusieurs fois. De toute façon vu qu'on a une limite de poids on ne va jamais tourner à l'infini tant que l'objet n'a pas de poids 0 et si il a un poids 0 il n'y a pas de solutions car la solution c'est $infinity$)
+  On fait deux cas: Celui dans lequel on prend l'objet et celui dans lequel on ne le prend pas. Et on fait un appel récursif dessus (toujours en considérant l'objet $k$, pour permettre de le prendre plusieurs fois. De toute façon vu qu'on a une limite de poids on ne va jamais tourner à l'infini tant que l'objet n'a pas de poids 0 et s'il a un poids 0 il n'y a pas de solutions car la solution c'est $infinity$)
 ]
 
 == Chapitre 7
@@ -2145,7 +2149,7 @@ Des exercices plus compliqué sont à venir.
 == Chapitre 8
 
 #corr(num:"8-1")[
-  Si un chemin de $u$ à $v$ passe deux fois par une même arête, on peut simplement retirer tous qu'il fait enter les deux passages dans l'arête et on aura toujours un chemin de $u$ à $v$
+  Si un chemin de $u$ à $v$ passe deux fois par une même arête, on peut simplement retirer tout ce qui fait entrer les deux passages dans l'arête et on aura toujours un chemin de $u$ à $v$
 ]
 
 #corr(num:"8-2")[
@@ -2172,7 +2176,7 @@ Des exercices plus compliqué sont à venir.
   L'erreur à débuguer est le fait que ce soit `tab[j][i]`, je laisse Coin-Coin vous expliquer pourquoi.
 ]
 #corr(num:"10-2")[
-  L'erreur à débuguer est l'oubli de cas de basen je laisse Coin-Coin vous expliquer pourquoi.
+  L'erreur à débuguer est l'oubli de cas de base je laisse Coin-Coin vous expliquer pourquoi.
 ]
 = Crédits
 
