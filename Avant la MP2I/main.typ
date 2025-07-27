@@ -2184,6 +2184,8 @@ Auteur : Clément ROUVROY (https://www.cr-dev.io/)
 
 Merci à Wyrdix, Grégoire, et aux terminales qui ont proposé des exercices supplémentaires pour le polycopié et des retouches sur le cours.
 
+Merci à Milan d'avoir mis à jour la template Typst et d'avoir corrigé quelques fautes de français dans le document.
+
 Merci aux terminales qui ont relu le polycopié et permis de mieux calibrer les exercices / le nombre d'étoiles.
 
 Merci à tous ceux qui m'enverront des exercices à mettre dans les versions prochaines.
