@@ -2180,7 +2180,7 @@ Des exercices plus compliqués sont à venir.
 ]
 = Crédits
 
-Auteur : Clément ROUVROY (https://www.cr-dev.io/)
+Auteur : Clément ROUVROY (https://crvr.fr/)
 
 Merci à Wyrdix, Grégoire, et aux terminales qui ont proposé des exercices supplémentaires pour le polycopié et des retouches sur le cours.
 
