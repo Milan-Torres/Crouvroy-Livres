@@ -2063,6 +2063,7 @@ On sait déjà que 1A est premier, on peut donc organiser une dernière course e
 
 ]
 
+
 #corr(num:"1-6")[$O(|L|)$  ! Le 100000 est une constante]
 
 #corr(num:"1-12")[1. $10^4$ 2. $(26*2)^14$ 3. On peut diviser par $26*2$]
