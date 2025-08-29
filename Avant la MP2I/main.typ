@@ -260,9 +260,8 @@ On a deux boucles `for` (pour) imbriqués, chacune a $n$ éléments et la deuxi�
     On représente une telle grille sous forme de matrice (si vous ne savez pas comment ça marche, pas de panique, regardez la section sur les tableaux et les listes). Les valeurs de la matrice représentent les valeurs entrées dans le sudoku, 0 représentant une case non remplie.
       
     2.  Donnez un algorithme qui étant donné une configuration (la grille est remplie avec certaines valeurs) renvoie Vrai si la partie est finie (indépendamment de si la solution est correcte ou non) et Faux sinon
-    2. Donnez un algorithme qui étant donné une configuration renvoie Vrai si la grille est correcte (si elle ne viole aucune règle du Sudoku) et Faux sinon
-    3. Donnez la complexité de chacun de vos algorithmes.
-
+    3. Donnez un algorithme qui étant donné une configuration renvoie Vrai si la grille est correcte (si elle ne viole aucune règle du Sudoku) et Faux sinon
+    4. Donnez la complexité de chacun de vos algorithmes.
 ]
 
 
