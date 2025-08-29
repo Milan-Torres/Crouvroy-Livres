@@ -268,7 +268,7 @@ On a deux boucles `for` (pour) imbriqués, chacune a $n$ éléments et la deuxi�
 #exo_nd(title: "Bruteforcing pour les nuls")[
     Vous venez de voler un PC à un inconnu dans un bus (ce n'est pas très gentil), vous courrez vous enfermer chez vous et vous l'allumez : il y a un mot de passe !
 
-    1. Si il s'agit des codes PIN de windows Hello (4 chiffres), combien d'essais vous faudrait-il pour bruteforce le mot de passe ? Ecrire l'algorithme.
+    1. Si il s'agit des codes PIN de windows Hello (4 chiffres), combien d'essais vous faudrait-il #underline[au plus]  pour bruteforce le mot de passe ? Écrire l'algorithme.
     2. Par manque de chance, vous avez bloqué Windows Hello : pas grave, il vous reste son mot de passe classique. Heureusement pour vous, il a laissé une note "longueur = 14". Sachant que son mot de passe n'utilise que des lettres de l'alphabet, combien de mot de passe faut-il tester ? Quelle serait la complexité d'un algorithme de bruteforce ?
 
     3. Si vous savez que son mot de passe commence par un $P$, de combien pouvez-vous réduire la complexité ?
