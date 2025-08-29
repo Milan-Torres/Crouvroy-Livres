@@ -2033,6 +2033,36 @@ Des exercices plus compliqués sont à venir.
 
 #corr(num:"1-3")[Lui ajouter un paramètre qu'on décroît de 1 à chaque fois, si il est nul alors on renvoie faux. Si l'algorithme termine avant on renvoie vrai]
 
+#corr(num:"1-4")[
+  On commence par faire 5 courses de 5 chevaux, tous distincts, de sorte que chacun des 25 chevaux ait couru exactement une fois.
+
+  On fait alors courir les 5 vainqueurs de chacune des courses ensemble au cours d'une "finale", ce qui nous permet d'obtenir le cheval le plus rapide (le vainqueur de la finale donc) après seulement 6 courses.
+
+On se sert des résultats de cette finale pour attribuer des noms aux chevaux, composés d'un nombre de 1 à 5 correspondant à leur classement lors de leur première course et d'une lettre de A à E correspondant au classement du vainqueur de leur première course lors de la finale. 
+
+Ainsi, 1A est le cheval ayant fini premier (1) lors de sa première course et ayant fini premier (A) lors de la finale, 2C est le cheval ayant fini 2eme (2) lors de sa première course et dont le vainqueur de cette première course a fini troisième (C) lors de la finale.
+
+On a alors les informations suivantes, correspondant aux classements des 6 courses:
+- 1A > 2A > 3A > 4A > 5A #h(4%) (course 1)
+- 1B > 2B > 3B > 4B > 5B #h(4%) (course 2)
+- 1C > 2C > 3C > 4C > 5C #h(4%) (course 5)
+- 1D > 2D > 3D > 4D > 5D #h(4%) (course 5)
+- 1E > 2E > 3E > 4E > 5E #h(4%) (course 5)
+
+- 1A > 1B > 1C > 1D > 1E #h(4%) (finale)
+
+Alors, 1D a minimum 3 chevaux plus rapides que lui (1C, 1B et 1A), il ne peut donc pas être sur le podium.
+Il en va de même pour tous les chevaux plus lents que lui, soit, avec certitude, tous les chevaux D et tous les chevaux E indirectement (car ils sont tous plus lents que 1E qui est plus lent que 1D).
+
+Pareillement C2 a minimum 3 chevaux plus rapides que lui (1C, 1B et 1A), il en va de même pour tous les nC avec n >= 2.
+Même chose pour tous les nB avec n >= 3.
+Et pour tous les nA avec n >= 4.
+
+Il ne nous reste au final que 1A, 2A, 3A, 1B, 2B et 1C comme prétendants au podium.
+On sait déjà que 1A est premier, on peut donc organiser une dernière course entre 2A, 3A, 1B, 2B et 1C pour trouver le deuxième et le troisième et ainsi complèter notre podium en seulement sept courses.
+
+]
+
 #corr(num:"1-6")[$O(|L|)$  ! Le 100000 est une constante]
 
 #corr(num:"1-12")[1. $10^4$ 2. $(26*2)^14$ 3. On peut diviser par $26*2$]
